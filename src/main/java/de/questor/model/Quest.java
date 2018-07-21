@@ -1,0 +1,75 @@
+package de.questor.model;
+
+import javax.persistence.*;
+
+@Entity
+public class Quest {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    private String setting;
+    private String story;
+    private int rating;
+    private float duration;
+    private String author;
+    @OneToOne
+    private QuestMarker startPosition;
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSetting(String setting) {
+        this.setting = setting;
+    }
+
+    public void setStory(String story) {
+        this.story = story;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public void setDuration(float duration) {
+        this.duration = duration;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setStartPosition(QuestMarker startPosition) {
+        this.startPosition = startPosition;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getSetting() {
+        return setting;
+    }
+
+    public String getStory() {
+        return story;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public float getDuration() {
+        return duration;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public QuestMarker getStartPosition() {
+        return startPosition;
+    }
+}

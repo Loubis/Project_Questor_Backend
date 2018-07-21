@@ -8,6 +8,16 @@ public abstract class PositionMarker {
 
     private float latitude;
     private float longitude;
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+
+        return name;
+    }
 
     public void setLatitude(float latitude) {
         this.latitude = latitude;

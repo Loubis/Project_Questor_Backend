@@ -1,21 +1,35 @@
 package de.questor.services;
 
 import de.questor.model.StartMarker;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import de.questor.repositories.StartMarkerRepository;
+import org.springframework.stereotype.Service;
 
 @Service
 public class StartMarkerService {
 
-    @Autowired
-    private StartMarkerRepository startMarkerRepository;
+    private final StartMarkerRepository startMarkerRepository;
 
-    public void test() {
-        StartMarker test = new StartMarker();
-        test.setLatitude(1);
-        test.setLongitude(1);
-        startMarkerRepository.save(test);
+    public StartMarkerService(StartMarkerRepository startMarkerRepository) {
+        this.startMarkerRepository = startMarkerRepository;
     }
 
+    public StartMarker getById(Integer id) {
+        return startMarkerRepository.findById(id).orElse(null);
+    }
+
+    public Iterable<StartMarker> getAll() {
+        return startMarkerRepository.findAll();
+    }
+
+    public StartMarker create(StartMarker startMarker) {
+        return startMarkerRepository.save(startMarker);
+    }
+
+    public StartMarker update(StartMarker startMarker) {
+        return startMarkerRepository.save(startMarker);
+    }
+
+    public void delete(Integer id) {
+        startMarkerRepository.deleteById(id);
+    }
 }

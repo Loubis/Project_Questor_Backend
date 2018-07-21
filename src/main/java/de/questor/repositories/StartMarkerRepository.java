@@ -1,9 +1,9 @@
 package de.questor.repositories;
 
-import de.questor.model.Test;
+import de.questor.model.StartMarker;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface TestRepo extends CrudRepository<Test, Integer> {
+public interface StartMarkerRepository extends CrudRepository<StartMarker, Integer> {
 }

@@ -29,7 +29,11 @@ public class QuestMarkerService {
         return questMarkerRepository.save(questMarker);
     }
 
-    public void delete(Integer id) {
-        questMarkerRepository.deleteById(id);
+    public boolean delete(Integer id) {
+        if (questMarkerRepository.existsById(id)) {
+            questMarkerRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

@@ -22,18 +22,22 @@ import java.util.List;
 @Service
 public class StartMarkerService {
 
+    private final StartMarkerRepository startMarkerRepository;
+    private final QuestRepository questRepository;
+    private final QuestMarkerRepository questMarkerRepository;
+    private final ConfirmationModuleRepository confirmationModuleRepository;
+    private final ModuleInRepository moduleInRepository;
+    private final ModuleOutRepository moduleOutRepository;
+
     @Autowired
-    private StartMarkerRepository startMarkerRepository;
-    @Autowired
-    private QuestRepository questRepository;
-    @Autowired
-    private QuestMarkerRepository questMarkerRepository;
-    @Autowired
-    private ConfirmationModuleRepository confirmationModuleRepository;
-    @Autowired
-    private ModuleInRepository moduleInRepository;
-    @Autowired
-    private ModuleOutRepository moduleOutRepository;
+    public StartMarkerService(StartMarkerRepository startMarkerRepository, QuestRepository questRepository, QuestMarkerRepository questMarkerRepository, ConfirmationModuleRepository confirmationModuleRepository, ModuleInRepository moduleInRepository, ModuleOutRepository moduleOutRepository) {
+        this.startMarkerRepository = startMarkerRepository;
+        this.questRepository = questRepository;
+        this.questMarkerRepository = questMarkerRepository;
+        this.confirmationModuleRepository = confirmationModuleRepository;
+        this.moduleInRepository = moduleInRepository;
+        this.moduleOutRepository = moduleOutRepository;
+    }
 
     public void test() {
         //Quests
@@ -90,7 +94,11 @@ public class StartMarkerService {
         return startMarkerRepository.save(startMarker);
     }
 
-    public void delete(Integer id) {
-        startMarkerRepository.deleteById(id);
+    public boolean delete(Integer id) {
+        if (startMarkerRepository.existsById(id)) {
+            startMarkerRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

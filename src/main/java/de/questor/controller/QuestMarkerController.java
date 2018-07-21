@@ -59,13 +59,16 @@ public class QuestMarkerController {
             consumes = "application/json",
             produces = "application/json")
     @ResponseBody
-    private QuestMarker update(@RequestBody QuestMarker questMarker) {
-        return questMarkerService.update(questMarker);
+    private ResponseEntity<QuestMarker> update(@RequestBody QuestMarker questMarker) {
+        if (questMarker.getId() == null || questMarkerService.getById(questMarker.getId()) == null)
+            return ResponseEntity.status(201).body(questMarkerService.update(questMarker));
+        return ResponseEntity.ok(questMarkerService.update(questMarker));
     }
 
     @DeleteMapping(path = "/{id}")
     private ResponseEntity delete(@PathVariable("id") Integer id) {
-        questMarkerService.delete(id);
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
+        if (questMarkerService.delete(id))
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 }

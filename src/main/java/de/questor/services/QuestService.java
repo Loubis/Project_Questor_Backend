@@ -29,7 +29,11 @@ public class QuestService {
         return questRepository.save(quest);
     }
 
-    public void delete(Integer id) {
-        questRepository.deleteById(id);
+    public boolean delete(Integer id) {
+        if (questRepository.existsById(id)) {
+            questRepository.deleteById(id);
+            return true;
+        }
+        return false;
     }
 }

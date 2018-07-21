@@ -59,13 +59,16 @@ public class StartMarkerController {
             consumes = "application/json",
             produces = "application/json")
     @ResponseBody
-    private StartMarker update(@RequestBody StartMarker startMarker) {
-        return startMarkerService.update(startMarker);
+    private ResponseEntity<StartMarker> update(@RequestBody StartMarker startMarker) {
+        if (startMarker.getId() == null || startMarkerService.getById(startMarker.getId()) == null)
+            return ResponseEntity.status(201).body(startMarkerService.update(startMarker));
+        return ResponseEntity.ok(startMarkerService.update(startMarker));
     }
 
     @DeleteMapping(path = "/{id}")
     private ResponseEntity delete(@PathVariable("id") Integer id) {
-        startMarkerService.delete(id);
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
+        if (startMarkerService.delete(id))
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 }

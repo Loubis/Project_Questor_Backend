@@ -59,13 +59,16 @@ public class QuestController {
             consumes = "application/json",
             produces = "application/json")
     @ResponseBody
-    private Quest update(@RequestBody Quest quest) {
-        return questService.update(quest);
+    private ResponseEntity<Quest> update(@RequestBody Quest quest) {
+        if (quest.getId() == null || questService.getById(quest.getId()) == null)
+            return ResponseEntity.status(201).body(questService.update(quest));
+        return ResponseEntity.ok(questService.update(quest));
     }
 
     @DeleteMapping(path = "/{id}")
     private ResponseEntity delete(@PathVariable("id") Integer id) {
-        questService.delete(id);
-        return new ResponseEntity(HttpStatus.NO_CONTENT);
+        if (questService.delete(id))
+            return new ResponseEntity(HttpStatus.NO_CONTENT);
+        return new ResponseEntity(HttpStatus.NOT_FOUND);
     }
 }

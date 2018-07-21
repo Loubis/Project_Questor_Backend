@@ -13,7 +13,7 @@ public class ConfirmationModule extends Module {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String message;
 
@@ -25,7 +25,7 @@ public class ConfirmationModule extends Module {
         this.message = message;
     }
 
-    public int getId() {
+    public Integer getId() {
 
         return id;
     }

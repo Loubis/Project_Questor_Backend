@@ -13,7 +13,7 @@ public class ModuleOut extends Module {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private QuestMarker pointsTo;
 

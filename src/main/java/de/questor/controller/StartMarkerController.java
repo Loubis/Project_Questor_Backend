@@ -35,8 +35,10 @@ public class StartMarkerController {
             consumes = "application/json",
             produces = "application/json")
     @ResponseBody
-    private StartMarker create(@RequestBody StartMarker startMarker) {
-        return startMarkerService.create(startMarker);
+    private ResponseEntity<StartMarker> create(@RequestBody StartMarker startMarker) {
+        if (startMarker.getId() != null)
+            return ResponseEntity.status(400).build();
+        return ResponseEntity.status(201).body(startMarkerService.create(startMarker));
     }
 
     @PostMapping(
@@ -44,10 +46,13 @@ public class StartMarkerController {
             consumes = "application/json",
             produces = "application/json")
     @ResponseBody
-    private Iterable<StartMarker> createMultiple(@RequestBody Iterable<StartMarker> startMarkers) {
+    private ResponseEntity<Iterable<StartMarker>> createMultiple(@RequestBody Iterable<StartMarker> startMarkers) {
+        for (StartMarker sm : startMarkers)
+            if (sm.getId() != null)
+                return ResponseEntity.status(400).build();
         for (StartMarker sm : startMarkers)
             startMarkerService.create(sm);
-        return startMarkers;
+        return ResponseEntity.status(201).body(startMarkers);
     }
 
     @PutMapping(

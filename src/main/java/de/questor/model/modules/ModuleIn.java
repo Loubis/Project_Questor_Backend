@@ -12,6 +12,6 @@ public class ModuleIn extends Module {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
 }

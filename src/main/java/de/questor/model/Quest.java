@@ -7,11 +7,11 @@ public class Quest {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     private String setting;
     private String story;
-    private int rating;
+    private Integer rating;
     private float duration;
     private String author;
     @OneToOne
@@ -45,7 +45,7 @@ public class Quest {
         this.startPosition = startPosition;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -57,7 +57,7 @@ public class Quest {
         return story;
     }
 
-    public int getRating() {
+    public Integer getRating() {
         return rating;
     }
 

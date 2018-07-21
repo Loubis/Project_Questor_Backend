@@ -8,7 +8,7 @@ public class QuestMarker extends PositionMarker {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     //@ManyToOne
     //private List<QuestMarker> pointedFrom;
@@ -45,7 +45,7 @@ public class QuestMarker extends PositionMarker {
         this.id = id;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 }

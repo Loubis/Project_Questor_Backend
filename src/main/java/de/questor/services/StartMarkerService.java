@@ -15,7 +15,6 @@ import de.questor.repositories.modules.ModuleOutRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import de.questor.repositories.StartMarkerRepository;
-import sun.security.pkcs11.Secmod;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +36,6 @@ public class StartMarkerService {
     private ModuleOutRepository moduleOutRepository;
 
     public void test() {
-
         //Quests
         Quest q1 = new Quest();
         q1.setStory("Quest 1");
@@ -76,4 +74,23 @@ public class StartMarkerService {
         startMarkerRepository.save(test);
     }
 
+    public StartMarker getById(Integer id) {
+        return startMarkerRepository.findById(id).orElse(null);
+    }
+
+    public Iterable<StartMarker> getAll() {
+        return startMarkerRepository.findAll();
+    }
+
+    public StartMarker create(StartMarker startMarker) {
+        return startMarkerRepository.save(startMarker);
+    }
+
+    public StartMarker update(StartMarker startMarker) {
+        return startMarkerRepository.save(startMarker);
+    }
+
+    public void delete(Integer id) {
+        startMarkerRepository.deleteById(id);
+    }
 }

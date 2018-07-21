@@ -1,11 +1,18 @@
 package de.questor.model;
 
-import javax.persistence.Embeddable;
+import javax.persistence.*;
 
-@Embeddable
+@Entity
+@DiscriminatorColumn(name="REF_TYPE")
 public abstract class Module {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
+    @OneToOne(cascade = CascadeType.ALL)
     private Module success;
+    @OneToOne(cascade = CascadeType.ALL)
     private Module failure;
 
     public void setSuccess(Module success) {
@@ -23,5 +30,14 @@ public abstract class Module {
 
     public Module getFailure() {
         return failure;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+
+        return id;
     }
 }

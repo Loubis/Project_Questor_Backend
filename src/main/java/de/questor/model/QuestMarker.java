@@ -10,15 +10,15 @@ public class QuestMarker extends PositionMarker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne
-    private List<QuestMarker> pointedFrom;
-    @OneToMany
+    //@ManyToOne
+    //private List<QuestMarker> pointedFrom;
+    @OneToMany(cascade = CascadeType.ALL)
     private List<QuestMarker> pointsTo;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Module> modules;
 
     public void setPointedFrom(List<QuestMarker> pointedFrom) {
-        this.pointedFrom = pointedFrom;
+        //this.pointedFrom = pointedFrom;
     }
 
     public void setPointsTo(List<QuestMarker> pointsTo) {
@@ -29,10 +29,9 @@ public class QuestMarker extends PositionMarker {
         this.modules = modules;
     }
 
-    public List<QuestMarker> getPointedFrom() {
-
-        return pointedFrom;
-    }
+    //public List<QuestMarker> getPointedFrom() {
+        //return pointedFrom;
+    //}
 
     public List<QuestMarker> getPointsTo() {
         return pointsTo;

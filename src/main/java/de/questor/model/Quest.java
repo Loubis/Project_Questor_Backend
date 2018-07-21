@@ -14,7 +14,7 @@ public class Quest {
     private int rating;
     private float duration;
     private String author;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private QuestMarker startPosition;
 
     public void setId(int id) {

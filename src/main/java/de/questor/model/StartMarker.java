@@ -1,5 +1,7 @@
 package de.questor.model;
 
+import org.hibernate.annotations.Cascade;
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -10,7 +12,7 @@ public class StartMarker extends PositionMarker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Quest> quests;
 
     public void setQuests(List<Quest> quests) {

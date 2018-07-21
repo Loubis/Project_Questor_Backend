@@ -5,13 +5,13 @@ import de.questor.model.Quest;
 import de.questor.model.QuestMarker;
 import de.questor.model.StartMarker;
 import de.questor.model.modules.ConfirmationModule;
-import de.questor.model.modules.ModuleIn;
-import de.questor.model.modules.ModuleOut;
+import de.questor.model.modules.InModule;
+import de.questor.model.modules.OutModule;
 import de.questor.repositories.QuestMarkerRepository;
 import de.questor.repositories.QuestRepository;
 import de.questor.repositories.modules.ConfirmationModuleRepository;
-import de.questor.repositories.modules.ModuleInRepository;
-import de.questor.repositories.modules.ModuleOutRepository;
+import de.questor.repositories.modules.InModuleRepository;
+import de.questor.repositories.modules.OutModuleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import de.questor.repositories.StartMarkerRepository;
@@ -26,17 +26,17 @@ public class StartMarkerService {
     private final QuestRepository questRepository;
     private final QuestMarkerRepository questMarkerRepository;
     private final ConfirmationModuleRepository confirmationModuleRepository;
-    private final ModuleInRepository moduleInRepository;
-    private final ModuleOutRepository moduleOutRepository;
+    private final InModuleRepository inModuleRepository;
+    private final OutModuleRepository outModuleRepository;
 
     @Autowired
-    public StartMarkerService(StartMarkerRepository startMarkerRepository, QuestRepository questRepository, QuestMarkerRepository questMarkerRepository, ConfirmationModuleRepository confirmationModuleRepository, ModuleInRepository moduleInRepository, ModuleOutRepository moduleOutRepository) {
+    public StartMarkerService(StartMarkerRepository startMarkerRepository, QuestRepository questRepository, QuestMarkerRepository questMarkerRepository, ConfirmationModuleRepository confirmationModuleRepository, InModuleRepository inModuleRepository, OutModuleRepository outModuleRepository) {
         this.startMarkerRepository = startMarkerRepository;
         this.questRepository = questRepository;
         this.questMarkerRepository = questMarkerRepository;
         this.confirmationModuleRepository = confirmationModuleRepository;
-        this.moduleInRepository = moduleInRepository;
-        this.moduleOutRepository = moduleOutRepository;
+        this.inModuleRepository = inModuleRepository;
+        this.outModuleRepository = outModuleRepository;
     }
 
     public void test() {
@@ -48,8 +48,8 @@ public class StartMarkerService {
         q1.setStartPosition(qm1);
         QuestMarker qm2 = new QuestMarker();
         //Modules
-        ModuleIn mIn = new ModuleIn();
-        ModuleOut mOut = new ModuleOut();
+        InModule mIn = new InModule();
+        OutModule mOut = new OutModule();
         ConfirmationModule conf = new ConfirmationModule();
         mIn.setSuccess(conf);
         conf.setSuccess(mOut);
@@ -70,8 +70,8 @@ public class StartMarkerService {
         test.setQuests(quests);
         quests.add(q1);
         confirmationModuleRepository.save(conf);
-        moduleInRepository.save(mIn);
-        moduleOutRepository.save(mOut);
+        inModuleRepository.save(mIn);
+        outModuleRepository.save(mOut);
         questMarkerRepository.save(qm1);
         questMarkerRepository.save(qm2);
         questRepository.save(q1);

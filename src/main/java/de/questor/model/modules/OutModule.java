@@ -6,7 +6,7 @@ import de.questor.model.QuestMarker;
 import javax.persistence.*;
 
 @Entity
-public class ModuleOut extends Module {
+public class OutModule extends Module {
 
     @OneToOne(cascade = CascadeType.ALL)
     private QuestMarker pointsTo;

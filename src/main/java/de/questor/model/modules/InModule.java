@@ -5,6 +5,6 @@ import de.questor.model.Module;
 import javax.persistence.Entity;
 
 @Entity
-public class ModuleIn extends Module {
+public class InModule extends Module {
 
 }

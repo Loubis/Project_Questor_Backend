@@ -12,46 +12,42 @@
 		"nextMarkerIds": [2],
 		"modules":       [
 		  {
-			"moduleType": "IN",
-			"success":    {
-			  "moduleType": "CONFIRMATION",
-			  "success":    {
+			"success": {
+			  "success": {
 				"nextMarkerId": 2,
 				"id":           3
 			  },
-			  "failure":    {
+			  "failure": {
 				"nextMarkerId": 2,
 				"id":           3
 			  },
-			  "id":         2,
-			  "message":    "Please accept this!"
+			  "id":      2,
+			  "message": "Please accept this!"
 			},
-			"failure":    {
-			  "moduleType": "CONFIRMATION",
-			  "success":    {
+			"failure": {
+			  "success": {
 				"nextMarkerId": 2,
 				"id":           3
 			  },
-			  "failure":    {
+			  "failure": {
 				"nextMarkerId": 2,
 				"id":           3
 			  },
-			  "id":         2,
-			  "message":    "Please accept this!"
+			  "id":      2,
+			  "message": "Please accept this!"
 			},
-			"id":         1
+			"id":      1
 		  }, {
-			"moduleType": "CONFIRMATION",
-			"success":    {
+			"success": {
 			  "nextMarkerId": 2,
 			  "id":           3
 			},
-			"failure":    {
+			"failure": {
 			  "nextMarkerId": 2,
 			  "id":           3
 			},
-			"id":         2,
-			"message":    "Please accept this!"
+			"id":      2,
+			"message": "Please accept this!"
 		  }, {
 			"nextMarkerId": 2,
 			"id":           3
@@ -59,8 +55,8 @@
 		],
 		"longitude":     51.514
 	  },
-	  "setting":       "post apocalypse",
-	  "story":         "You need to find decontaminated water."
+	  "story":         "You need to find decontaminated water.",
+	  "setting":       "post apocalypse"
 	}
   ],
   "latitude":  7.4,

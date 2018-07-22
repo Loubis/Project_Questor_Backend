@@ -87,40 +87,33 @@ public class StartUpInit {
         qm1.getNextMarkerIds().add(qm2.getId());
         questMarkerRepository.save(qm1);
 
-        inMod1.setModuleType("IN");
         inMod1.setOriginId(null);
         inMod1.setFailure(confMod1);
         inMod1.setSuccess(confMod1);
-        confMod1.setModuleType("CONFIRMATION");
         confMod1.setMessage("Please accept this!");
         confMod1.setFailure(outMod1);
         confMod1.setSuccess(outMod1);
-        outMod2.setModuleType("OUT");
         outMod1.setFailure(null);
         outMod1.setSuccess(null);
         outMod1.setNextMarkerId(qm2.getId());
 
 
-        inMod2.setModuleType("IN");
         inMod2.setOriginId(qm1.getId());
         inMod2.setFailure(confMod2);
         inMod2.setSuccess(confMod2);
-        confMod2.setModuleType("CONFIRMATION");
         confMod2.setMessage("Please accept this!");
         confMod2.setFailure(outMod2);
         confMod2.setSuccess(outMod2);
-        outMod2.setModuleType("OUT");
         outMod2.setFailure(null);
         outMod2.setSuccess(null);
         outMod2.setNextMarkerId(null);
 
-        inModuleRepository.save(inMod1);
-        inModuleRepository.save(inMod2);
-        confirmationModuleRepository.save(confMod1);
-        confirmationModuleRepository.save(confMod2);
         outModuleRepository.save(outMod1);
         outModuleRepository.save(outMod2);
-
+        confirmationModuleRepository.save(confMod1);
+        confirmationModuleRepository.save(confMod2);
+        inModuleRepository.save(inMod1);
+        inModuleRepository.save(inMod2);
 
         // Quest
         Quest quest = new Quest();

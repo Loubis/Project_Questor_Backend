@@ -10,42 +10,42 @@ public class QuestMarker extends PositionMarker {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    //@ManyToOne
-    //private List<QuestMarker> pointedFrom;
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<QuestMarker> pointsTo;
-    @OneToMany(cascade = CascadeType.ALL)
+    @ElementCollection
+    private List<Integer> originIds;
+    @ElementCollection
+    private List<Integer> nextMarkerIds;
+    @OneToMany(cascade = {CascadeType.DETACH, CascadeType.ALL})
     private List<Module> modules;
 
-    public void setPointedFrom(List<QuestMarker> pointedFrom) {
-        //this.pointedFrom = pointedFrom;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setPointsTo(List<QuestMarker> pointsTo) {
-        this.pointsTo = pointsTo;
+    public void setOriginIds(List<Integer> originIds) {
+        this.originIds = originIds;
+    }
+
+    public void setNextMarkerIds(List<Integer> nextMarkerIds) {
+        this.nextMarkerIds = nextMarkerIds;
     }
 
     public void setModules(List<Module> modules) {
         this.modules = modules;
     }
 
-    //public List<QuestMarker> getPointedFrom() {
-        //return pointedFrom;
-    //}
+    public Integer getId() {
+        return id;
+    }
 
-    public List<QuestMarker> getPointsTo() {
-        return pointsTo;
+    public List<Integer> getOriginIds() {
+        return originIds;
+    }
+
+    public List<Integer> getNextMarkerIds() {
+        return nextMarkerIds;
     }
 
     public List<Module> getModules() {
         return modules;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public Integer getId() {
-        return id;
     }
 }

@@ -12,9 +12,9 @@ public class Quest {
     private String setting;
     private String story;
     private Integer rating;
-    private float duration;
+    private Double duration;
     private String author;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.DETACH)
     private QuestMarker startPosition;
 
     public void setId(int id) {
@@ -33,7 +33,7 @@ public class Quest {
         this.rating = rating;
     }
 
-    public void setDuration(float duration) {
+    public void setDuration(Double duration) {
         this.duration = duration;
     }
 
@@ -61,7 +61,7 @@ public class Quest {
         return rating;
     }
 
-    public float getDuration() {
+    public Double getDuration() {
         return duration;
     }
 

@@ -1,37 +1,70 @@
-[
-  {
-	"longitude": 51.514,
-	"latitude": 7.468,
-	"name": "StartMarker1"
-  },
-  {
-	"longitude": 51.500,
-	"latitude": 7.400,
-	"name": "StartMarker2"
-  },
-  {
-	"longitude": 51.530,
-	"latitude": 7.440,
-	"name": "StartMarker3"
-  },
-  {
-	"longitude": 51.520,
-	"latitude": 7.450,
-	"name": "StartMarker4"
-  },
-  {
-	"longitude": 51.540,
-	"latitude": 7.460,
-	"name": "StartMarker5"
-  },
-  {
-	"longitude": 51.521,
-	"latitude": 7.433,
-	"name": "StartMarker6"
-  },
-  {
-	"longitude": 51.543,
-	"latitude": 7.456,
-	"name": "StartMarker7"
-  }
-]
+{
+  "quests":    [
+	{
+	  "duration":      9.639,
+	  "author":        "Nancy G.",
+	  "rating":        4,
+	  "id":            1,
+	  "startPosition": {
+		"latitude":      7.468,
+		"name":          "QuestMarker1",
+		"id":            1,
+		"nextMarkerIds": [2],
+		"modules":       [
+		  {
+			"moduleType": "IN",
+			"success":    {
+			  "moduleType": "CONFIRMATION",
+			  "success":    {
+				"nextMarkerId": 2,
+				"id":           3
+			  },
+			  "failure":    {
+				"nextMarkerId": 2,
+				"id":           3
+			  },
+			  "id":         2,
+			  "message":    "Please accept this!"
+			},
+			"failure":    {
+			  "moduleType": "CONFIRMATION",
+			  "success":    {
+				"nextMarkerId": 2,
+				"id":           3
+			  },
+			  "failure":    {
+				"nextMarkerId": 2,
+				"id":           3
+			  },
+			  "id":         2,
+			  "message":    "Please accept this!"
+			},
+			"id":         1
+		  }, {
+			"moduleType": "CONFIRMATION",
+			"success":    {
+			  "nextMarkerId": 2,
+			  "id":           3
+			},
+			"failure":    {
+			  "nextMarkerId": 2,
+			  "id":           3
+			},
+			"id":         2,
+			"message":    "Please accept this!"
+		  }, {
+			"nextMarkerId": 2,
+			"id":           3
+		  }
+		],
+		"longitude":     51.514
+	  },
+	  "setting":       "post apocalypse",
+	  "story":         "You need to find decontaminated water."
+	}
+  ],
+  "latitude":  7.4,
+  "name":      "StartMarker1",
+  "id":        1,
+  "longitude": 51.5
+}

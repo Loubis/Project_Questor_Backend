@@ -1,19 +1,29 @@
 package de.questor.model;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import de.questor.ModuleDeserializer;
+
 import javax.persistence.*;
 
+@JsonDeserialize(using = ModuleDeserializer.class)
 @Entity
 @DiscriminatorColumn(name="REF_TYPE")
 public abstract class Module {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Integer id;
 
     @OneToOne(cascade = CascadeType.ALL)
     private Module success;
     @OneToOne(cascade = CascadeType.ALL)
     private Module failure;
+
+    private String moduleType;
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public void setSuccess(Module success) {
         this.success = success;
@@ -23,8 +33,15 @@ public abstract class Module {
         this.failure = failure;
     }
 
-    public Module getSuccess() {
+    public void setModuleType(String moduleType) {
+        this.moduleType = moduleType;
+    }
 
+    public Integer getId() {
+        return id;
+    }
+
+    public Module getSuccess() {
         return success;
     }
 
@@ -32,12 +49,7 @@ public abstract class Module {
         return failure;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getId() {
-
-        return id;
+    public String getModuleType() {
+        return moduleType;
     }
 }

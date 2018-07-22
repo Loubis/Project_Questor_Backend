@@ -1,13 +1,12 @@
 package de.questor.model;
 
-import javax.persistence.Entity;
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
 public abstract class PositionMarker {
 
-    private float latitude;
-    private float longitude;
+    private double latitude;
+    private double longitude;
     private String name;
 
     public void setName(String name) {
@@ -19,20 +18,19 @@ public abstract class PositionMarker {
         return name;
     }
 
-    public void setLatitude(float latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public void setLongitude(float longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
-    public float getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public float getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
-
 }

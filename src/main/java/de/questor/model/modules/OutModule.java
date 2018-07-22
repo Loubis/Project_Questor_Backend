@@ -1,22 +1,19 @@
 package de.questor.model.modules;
 
 import de.questor.model.Module;
-import de.questor.model.QuestMarker;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
 
 @Entity
 public class OutModule extends Module {
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private QuestMarker pointsTo;
+    private Integer nextMarkerId;
 
-    public void setPointsTo(QuestMarker pointsTo) {
-        this.pointsTo = pointsTo;
+    public void setNextMarkerId(Integer nextMarkerId) {
+        this.nextMarkerId = nextMarkerId;
     }
 
-    public QuestMarker getPointsTo() {
-
-        return pointsTo;
+    public Integer getNextMarkerId() {
+        return nextMarkerId;
     }
 }

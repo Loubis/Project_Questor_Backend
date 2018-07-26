@@ -54,15 +54,15 @@ public class StartUpInit {
         QuestMarker qm1 = new QuestMarker();
         QuestMarker qm2 = new QuestMarker();
 
-        qm1.setLongitude(51.514);
-        qm1.setLatitude(7.468);
+        qm1.setLongitude(60.19179);
+        qm1.setLatitude(24.96693);
         qm1.setName("QuestMarker1");
         qm1.setOriginIds(null);
         qm1.setNextMarkerIds(new ArrayList<>());
         qm1.setModules(new ArrayList<>());
 
-        qm2.setLongitude(51.511);
-        qm2.setLatitude(7.453);
+        qm2.setLongitude(60.19279);
+        qm2.setLatitude(24.96693);
         qm2.setName("QuestMarker2");
         qm2.setOriginIds(new ArrayList<>());
         qm2.setNextMarkerIds(null);
@@ -130,8 +130,8 @@ public class StartUpInit {
 
         // StartMarker
         StartMarker sm = new StartMarker();
-        sm.setLongitude(51.500);
-        sm.setLatitude(7.400);
+        sm.setLongitude(60.19079);
+        sm.setLatitude(24.96693);
         sm.setName("StartMarker1");
         sm.setQuests(quests);
 
